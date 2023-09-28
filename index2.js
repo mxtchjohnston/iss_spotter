@@ -9,8 +9,7 @@ const printTimes = function(times) {
 };
 
 nextISSTimesForMyLocation()
-  .then(data => printTimes(data)
-  )
+  .then(data => printTimes(data))
   .catch(err => console.log(err.message));
 
 

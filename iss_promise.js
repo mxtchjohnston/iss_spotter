@@ -18,12 +18,11 @@ const fetchFlyoverTimes = (body) => {
 }
 
 const nextISSTimesForMyLocation = function() {
-  fetchMyIP()
+  return fetchMyIP()
   .then(fetchMyCoords)
   .then(fetchFlyoverTimes)
   .then(data => {
-    const response = JSON.parse(data).response;
-    return new Promise((res, rej) => res(response));
+    return JSON.parse(data).response;
   });
 };
 
