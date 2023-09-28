@@ -8,22 +8,22 @@ const fetchMyCoords = (body) => {
   const endpoint = `https://ipwho.is/${ip}?${fields}`;
 
   return request(endpoint);
-}
+};
 
 const fetchFlyoverTimes = (body) => {
   const coords = JSON.parse(body);
   const endpoint = `https://iss-flyover.herokuapp.com/json/?lat=${coords.latitude}&lon=${coords.longitude}`;
 
   return request(endpoint);
-}
+};
 
 const nextISSTimesForMyLocation = function() {
   return fetchMyIP()
-  .then(fetchMyCoords)
-  .then(fetchFlyoverTimes)
-  .then(data => {
-    return JSON.parse(data).response;
-  });
+    .then(fetchMyCoords)
+    .then(fetchFlyoverTimes)
+    .then(data => {
+      return JSON.parse(data).response;
+    });
 };
 
 module.exports = nextISSTimesForMyLocation;
